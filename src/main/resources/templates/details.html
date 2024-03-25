@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="mainFragment">
+    <div class="container text-center">
+        <div class="row" >
+
+            <form action="/requests/delete" method="post">
+                <div class="mb-3">
+                    <input type="hidden" th:value="${request.id}" name="id">
+                </div>
+                <div class="mb-3">
+                    <input type="text" readonly th:value="${request.getUserName()}" name="userName" class="form-control" id="username" placeholder="ФИО">
+                </div>
+                <div class="mb-3">
+                    <select name="course.id" disabled="true">
+                        <option th:each="course : ${courses}"
+                                th:text="${course.name}"
+                                th:value="${course.id}"
+                                th:selected="${request.course.id == course.id}"
+                                name="courseName"  >
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="text" readonly name="phone" th:value="${request.getPhone()}" class="form-control" id="phone" placeholder="Телефон">
+                </div>
+                <div class="mb-3">
+                    <input type="textarea" readonly name="commentary" th:value="${request.getCommentary()}" class="form-control" id="commentary" placeholder="Комментарий">
+                </div>
+                <div class="flex-column">
+                    <button class="bg-success text-white">Обработать</button>
+                    <button class="bg-danger text-white">Удалить</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+</html>
+

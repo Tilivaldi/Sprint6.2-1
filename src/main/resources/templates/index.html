@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="mainFragment">
+    <div class="container text-center">
+        <div class="row" >
+
+            <div class="col" th:each="request : ${requests}">
+                <div class="request">
+                    <h3 class="request-name text-bg-danger" name="request-handled"
+                        th:if="${request.handled==false}" > * Новая заявка</h3>
+                    <h3 class="request-name" name="request-name" th:text="${request.getUserName()}"></h3>
+                    <p class="course">
+                    <h3 class="request-name" name="request-name"
+                        th:text="${request.course.name}"></h3>
+                    </p>
+                    <p class="course-question" name="course-question" th:text="${request.getCommentary()}"></p>
+                    <p class="phone-number" name="phone-number" th:text="${request.getPhone()}"></p>
+                    <p class="read-more">
+
+                        <a th:href="${'/requests/' + request.getId()}">DETAILS</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</html>
+
