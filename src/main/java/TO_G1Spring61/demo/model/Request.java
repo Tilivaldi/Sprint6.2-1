@@ -31,6 +31,7 @@ public class Request {
     private String phone;
 
     @Column(name = "HANDLED", columnDefinition = "BOOLEAN default false")
+    @Builder.Default
     private Boolean handled = false;
 
     @ManyToOne

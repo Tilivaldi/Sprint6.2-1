@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/SpringSpring2
+    username: postgres
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    

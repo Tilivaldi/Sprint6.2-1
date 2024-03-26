@@ -4,22 +4,22 @@
     <div class="container text-center">
         <div class="row" >
 
-            <div class="col" th:each="request : ${requests}">
-                <div class="request">
-                    <h3 class="request-name text-bg-danger" name="request-handled"
-                        th:if="${request.handled==false}" > * Новая заявка</h3>
-                    <h3 class="request-name" name="request-name" th:text="${request.getUserName()}"></h3>
-                    <p class="course">
-                    <h3 class="request-name" name="request-name"
-                        th:text="${request.course.name}"></h3>
-                    </p>
-                    <p class="course-question" name="course-question" th:text="${request.getCommentary()}"></p>
-                    <p class="phone-number" name="phone-number" th:text="${request.getPhone()}"></p>
-                    <p class="read-more">
+            <div class="col-6 mb-12 .p-3 mt-3" th:each="request : ${requests}"
+            style="">
+                <div class="card" style="">
+                    <div class="card-body">
+                        <h5 class=" card-titlerequest-name text-bg-danger" name="request-handled"
+                            th:if="${request.handled==false}" > * Новая заявка</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary" name="request-name" th:text="${request.getUserName()}"></h6>
+                        <p class="card-text" name="request-name"
+                           th:text="${request.course.name}"></p>
+                        <p class="card-text" name="course-question" th:text="${request.getCommentary()}"></p>
+                        <p class="card-text" name="phone-number" th:text="${request.getPhone()}"></p>
 
-                        <a th:href="${'/requests/' + request.getId()}">DETAILS</a>
-                    </p>
+                        <a th:href="${'/requests/' + request.getId()}">DETAILS</a></a>
+                    </div>
                 </div>
+
             </div>
 
         </div>
